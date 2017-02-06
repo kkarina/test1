@@ -84,12 +84,13 @@ public class CompanyCard {
                 $("input#kpp").setValue(kpp);
                 $("input#employeePosition").setValue(employeePosition);
                 $("input#documentNumber").setValue(documentNumber);
-                $("form#formCompany div:nth-child(31) > div > input").setValue(documentDate);
+                $("form#formCompany div:nth-child(31) > div > input").pressEnter();
+                sleep(500);
             }
 
         }
 
-        $("form#formCompany div:nth-child(28) > div > button").click();
+        $(withText("Сохранить")).click();
         $("div:nth-child(8) > div > p").shouldHave(text(INN));
         screenshot("C:\\Users\\Afashokova\\IdeaProjects\\test1\\build\\reports\\tests\\1.png");
 
