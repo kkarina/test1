@@ -27,4 +27,12 @@ public class    LogIn {
         return page(LogIn.class);
     }
 
+    public LogIn Admin () throws Exception{
+        open("https://agroview-test.lenoblgis.ru");
+        $(By.id("loginName")).shouldBe(visible).setValue("admin");
+        $(By.id("password")).setValue("123");
+        $(By.id("login-submit")).click();
+        return page(LogIn.class);
+    }
+
 }

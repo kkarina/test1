@@ -26,7 +26,7 @@ public class NewEmployeeAPP {
         Workbook inputFile = Workbook.getWorkbook(fi);
         s = inputFile.getSheet(4);// данные для заполнения формы создания сотрудника АПП
         int j = s.getRows();
-        login.SignIn(0,3);
+        login.Admin();
         reference.References();
         employeeReference.employeeReference();
         employeeReference.AppEmployeeReference();

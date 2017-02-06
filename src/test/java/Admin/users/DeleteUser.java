@@ -26,7 +26,7 @@ public class DeleteUser {
         userName = inputFile.getSheet(6);
         int j = userName.getRows();
 
-        logIn.SignIn(0, 3);
+        logIn.Admin();
         reference.References();
         accountsReference.openAccountsReference();
         String login;

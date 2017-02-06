@@ -27,7 +27,7 @@ public class CreateUser {
         Workbook inputFile = Workbook.getWorkbook(fi);
         newLogin = inputFile.getSheet(5);
         int j = newLogin.getRows();
-        login.SignIn(0, 3);
+        login.Admin();
         newEmployee = inputFile.getSheet(4);
         reference.References();
         accountsReference.openAccountsReference();

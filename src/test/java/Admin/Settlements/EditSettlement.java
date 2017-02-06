@@ -24,7 +24,7 @@ public class EditSettlement {
         Workbook inputFile = Workbook.getWorkbook(fi);
         Settlement = inputFile.getSheet(10);
         int j = Settlement.getRows();
-        login.SignIn(0, 3);
+        login.Admin();
         reference.References();
         settlementsReference.openSettlementsReference();
         String settlementName, newMunicipality, newSettlmentName;

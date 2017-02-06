@@ -27,4 +27,9 @@ public class MunicipalityReference {
         $$("td.col-md-3").findBy(text(shortName)).shouldBe(visible);
         return page(MunicipalityReference.class);
     }
+    //просмотр района
+    public MunicipalityReference openMunicipality(String shortName){
+        $$("td.col-md-3").findBy(text(shortName)).click();
+        return page(MunicipalityReference.class);
+    }
 }

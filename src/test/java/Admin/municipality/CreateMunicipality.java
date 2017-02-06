@@ -11,16 +11,17 @@ import org.junit.Test;
 import java.io.FileInputStream;
 
 public class CreateMunicipality {
-    LogIn logIn = new LogIn();
-    LogOut logOut = new LogOut();
-    Pages reference = new Pages();
-    Sheet municipalities;
+
     @Test
     public void TestCreateMunicipality() throws Exception{
+        LogIn logIn = new LogIn();
+        LogOut logOut = new LogOut();
+        Pages reference = new Pages();
+        Sheet municipalities;
         FileInputStream fi = new FileInputStream("C:\\Users\\Afashokova\\IdeaProjects\\test1\\data\\login.xls");
         Workbook inputFile = Workbook.getWorkbook(fi);
         municipalities = inputFile.getSheet(13);
-        logIn.SignIn(0,3);
+        logIn.Admin();
         reference.References();
         MunicipalityReference municipalityReference = new MunicipalityReference();
         municipalityReference.openMunicipalityReference();
@@ -30,6 +31,6 @@ public class CreateMunicipality {
             fullName = municipalities.getCell(1,i).getContents();
             municipalityReference.CreateMunicipality(shortName,fullName);
         }
-    //    logOut.Signout();
+        logOut.Signout();
     }
 }
