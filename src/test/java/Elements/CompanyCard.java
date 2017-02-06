@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 
@@ -88,12 +89,10 @@ public class CompanyCard {
 
         }
 
-
-
         $("form#formCompany div:nth-child(28) > div > button").click();
         $("div:nth-child(8) > div > p").shouldHave(text(INN));
         screenshot("C:\\Users\\Afashokova\\IdeaProjects\\test1\\build\\reports\\tests\\1.png");
 
         return page(CompanyCard.class);
     }
-}
+   }

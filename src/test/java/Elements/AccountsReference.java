@@ -44,12 +44,4 @@ public class AccountsReference {
         return page(AccountsReference.class);
     }
 
-    //Удаление пользователя
-    public AccountsReference DeleteUser() {
-        $(".delete-btn.pull-left").click();
-        $(".buttonOk").click();
-        return page(AccountsReference.class);
-    }
-
-
 }

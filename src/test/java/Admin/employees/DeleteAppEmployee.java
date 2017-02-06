@@ -32,7 +32,7 @@ public class DeleteAppEmployee {
         for (int i = 1; i<j; i++) {
             employee = AppEmployeeForDelete.getCell(3,i).getContents();
             employeeReference.OpenEmployeeApp(employee);
-            employeeReference.DeleteAppEmployee();
+            reference.DeleteObject();
             System.out.println(employee);
         }
         logout.Signout();

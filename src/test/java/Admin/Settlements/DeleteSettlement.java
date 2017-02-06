@@ -32,7 +32,7 @@ public class DeleteSettlement {
         for (int i = 1; i < j; i++) {
             settlementName = Settlement.getCell(1, i).getContents();
             settlementsReference.openSettlement(settlementName);
-            settlementsReference.deleteSettlement();
+            reference.DeleteObject();
         }
         logout.Signout();
 

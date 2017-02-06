@@ -49,10 +49,5 @@ public class EmployeeReference {
         $(withText(employeeName)).click();
         return page(EmployeeReference.class);
     }
-    //Удалить запись справочника Сотрудники АПП
-    public EmployeeReference DeleteAppEmployee() {
-        $(".delete-btn.pull-left").click();
-        $(".buttonOk").click();
-        return page(EmployeeReference.class);
-    }
+
 }

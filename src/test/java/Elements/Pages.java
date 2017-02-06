@@ -20,4 +20,11 @@ public class Pages {
         $("div:nth-child(1) > a > span.text").shouldBe(Condition.visible).click();
         return page(Pages.class);
     }
+
+    //Удаление объекта
+    public Pages DeleteObject() {
+        $(".delete-btn.pull-left").click();
+        $(".buttonOk").click();
+        return page(Pages.class);
+    }
 }

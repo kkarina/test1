@@ -25,6 +25,7 @@ public class CreateApp {
 
     @Before
     public void switchToSoftAssertionsMode() {
+
         Configuration.assertionMode = SOFT;
     }
     @Test

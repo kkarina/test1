@@ -34,7 +34,7 @@ public class DeleteUser {
         {
             login = userName.getCell(0,i).getContents();
             accountsReference.OpenUser(login);
-            accountsReference.DeleteUser();
+            reference.DeleteObject();
         }
         logout.Signout();
     }

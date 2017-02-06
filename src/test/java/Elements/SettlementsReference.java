@@ -42,13 +42,7 @@ public class SettlementsReference {
         else System.out.println(settlement);
         return page(SettlementsReference.class);
         }
-    //Удаление поселения
-    public SettlementsReference deleteSettlement() {
-        $(".delete-btn.pull-left").click();
-        sleep(100);
-        $("button.buttonOk").click();
-        return page(SettlementsReference.class);
-    }
+
 
     //Редактирование поселения
     public SettlementsReference editSettlement (String newMunicipality, String newSettlement){
