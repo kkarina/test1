@@ -6,9 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
-/**
- * Created by afashokova on 01.02.2017.
- */
+
 public class CompanyCard {
     String  fullName = "textarea#fullName",
             shortName = "input#shortName",
