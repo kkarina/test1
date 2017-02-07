@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import Elements.*;
 
 /**
  * Created by afashokova on 11.01.2017.
@@ -41,6 +42,8 @@ public class EmployeeReference {
         $(By.id("position")).setValue(Statement);
         $(By.id("positionGenitive")).setValue(state);
         $(".save-form-btn").click();
+        Pages mistake = new Pages();
+        mistake.Mistake();
         $(".table-hover tbody").shouldHave(text(secondName));
         return page (EmployeeReference.class);
     }

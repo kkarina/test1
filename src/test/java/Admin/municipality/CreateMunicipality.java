@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import java.io.FileInputStream;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class CreateMunicipality {
 
     @Test

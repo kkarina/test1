@@ -69,8 +69,10 @@ public class CompanyCard {
             $(STATUS).click();
         $(LegAddress).setValue(legalAddress);
         $(factAddress).setValue(actualAddress);
-        if (AppType.equals("Физическое лицо"))
+        if (AppType.equals("Физическое лицо")){
             $("input#snils").setValue(snils);
+            sleep(500);
+        }
         else {
             $(OKVAD).setValue(okvad);
             $(PFR).setValue(pfrNumber);

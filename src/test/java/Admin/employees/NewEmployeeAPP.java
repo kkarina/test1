@@ -9,6 +9,8 @@ import java.io.FileInputStream;
 import jxl.Sheet;
 import jxl.Workbook;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class NewEmployeeAPP {
     private final LogIn login = new LogIn();
     private final LogOut logout = new LogOut();

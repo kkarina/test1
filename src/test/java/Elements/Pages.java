@@ -2,6 +2,8 @@ package Elements;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -25,6 +27,16 @@ public class Pages {
     public Pages DeleteObject() {
         $(".delete-btn.pull-left").click();
         $(".buttonOk").click();
+        return page(Pages.class);
+    }
+
+    //Проверка сообщения об ошибке
+    public Pages Mistake() {
+        Boolean t = $("ul#noty_topRight_layout_container").has(Condition.text("Ошибка выполнения"));
+        if (t = true) {
+            $(withText("Об ошибке")).click();
+            System.out.println($("div > div.bodyWindow").getText());
+        }
         return page(Pages.class);
     }
 }
