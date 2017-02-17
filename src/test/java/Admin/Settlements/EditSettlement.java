@@ -34,6 +34,7 @@ public class EditSettlement {
             newMunicipality = Settlement.getCell(2,i).getContents();
             newSettlmentName = Settlement.getCell(3,i).getContents();
             settlementsReference.editSettlement(newMunicipality,newSettlmentName);
+            reference.SaveObject();
         }
         logout.Signout();
     }

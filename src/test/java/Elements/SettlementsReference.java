@@ -26,8 +26,6 @@ public class SettlementsReference {
         $(By.linkText(municipality)).click();
         sleep(500);
         $("div:nth-child(4) > div > input:nth-child(1)").setValue(settlement);
-        $(".save-form-btn").click();
-        $("div:nth-child(2) > div.col-table.col-md-9").shouldHave(text(settlement));
         return page(SettlementsReference.class);
     }
 
@@ -49,8 +47,6 @@ public class SettlementsReference {
         $("div#formChangeRow span.filter-option.pull-left").click();
         $(By.linkText(newMunicipality)).click();
         $("div:nth-child(4) > div > input:nth-child(1)").setValue(newSettlement);
-        sleep (500);
-        $(".save-form-btn").click();
         return page(SettlementsReference.class);
     }
 }

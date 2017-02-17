@@ -9,7 +9,11 @@ import Elements.Pages;
 import Elements.LogIn;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.SoftAsserts;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.AssertionMode.SOFT;
+import static com.codeborne.selenide.Selenide.$;
+
 import org.junit.*;
 import java.io.FileInputStream;
 import jxl.Sheet;
@@ -45,6 +49,8 @@ public class CreateSettlement {
             settlementName = Settlement.getCell(1, i).getContents();
             municipality = Settlement.getCell(0,i).getContents();
             settlementsReference.newSettlement(municipality, settlementName);
+            reference.SaveObject();
+            $("div:nth-child(2) > div.col-table.col-md-9").shouldHave(text(settlementName));
         }
         logout.Signout();
 

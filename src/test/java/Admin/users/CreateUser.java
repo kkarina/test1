@@ -41,6 +41,7 @@ public class CreateUser {
                     + " " + newEmployee.getCell(2, i).getContents().replace(" ", "");
             newPassword = newLogin.getCell(2, i).getContents();
             accountsReference.UserCreation(logon, email, employee, newPassword);
+            reference.SaveObject();
         }
         logout.Signout();
     }

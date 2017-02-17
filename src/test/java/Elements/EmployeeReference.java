@@ -41,8 +41,8 @@ public class EmployeeReference {
         $("#appEmployeeRole").selectOptionByValue(Role); //открытие списка "Сотрудник"
         $(By.id("position")).setValue(Statement);
         $(By.id("positionGenitive")).setValue(state);
-        $(".save-form-btn").click();
         Pages mistake = new Pages();
+        mistake.SaveObject();
         mistake.Mistake();
         $(".table-hover tbody").shouldHave(text(secondName));
         return page (EmployeeReference.class);

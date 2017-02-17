@@ -22,8 +22,6 @@ public class MunicipalityReference {
         $("input#shortName").setValue(shortName);
         $("input#fullName").setValue(fullName);
         $("div#formChangeRow input.form-control.input-logo.with-set-input").uploadFile(new File("C:\\Users\\Afashokova\\Downloads\\artleo.com-97891.jpg"));
-        $("div#formChangeRow button.btn.btn-primary.save-form-btn").click();
-        $$("td.col-md-3").findBy(text(shortName)).shouldBe(visible);
         return page(MunicipalityReference.class);
     }
     //просмотр района

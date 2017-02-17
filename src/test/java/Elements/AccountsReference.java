@@ -9,13 +9,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 @SuppressWarnings("UnusedReturnValue")
 public class AccountsReference {
-    String  logon = "logonName",
+    String logon = "logonName",
             Email = "email",
             employeeList = "(//button[@type='button'])[6]",
             employeeName = "employee.id",
             newPass = "newPassword",
-            newPass2 = "newPassword2",
-            saveButton = "button.btn.btn-primary.save-form-btn";
+            newPass2 = "newPassword2";
 
     //Открытие справочника учетных записей
     public AccountsReference openAccountsReference() {
@@ -33,15 +32,26 @@ public class AccountsReference {
         $(By.id(employeeName)).selectOption(employee);
         $(By.id(newPass)).setValue(Password);
         $(By.id(newPass2)).setValue(Password);
-        sleep(500);
-        $(saveButton).click(); //сохранить учетную запись
         return page(AccountsReference.class);
     }
 
     //Открыть запись справочника
-    public AccountsReference OpenUser(String username){
+    public AccountsReference OpenUser(String username) {
         $(withText(username)).click();
         return page(AccountsReference.class);
     }
 
+    //Редактирование учетной записи
+    public AccountsReference EditUser(String newLogin, String newEmail, String newEmployee, String newPassword) {
+
+        $(By.id(logon)).setValue(newLogin);
+        $(By.id(Email)).setValue(newEmail);
+        $(By.xpath(employeeList)).click(); //открыть выпадающий список сотрудников
+        $(By.id(employeeName)).selectOption(newEmployee);
+        $(By.id(newPass)).setValue(newPassword);
+        $(By.id(newPass2)).setValue(newPassword);
+        return page(AccountsReference.class);
+
+    }
 }
+
