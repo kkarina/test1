@@ -48,6 +48,8 @@ public class AccountsReference {
         $(By.id(Email)).setValue(newEmail);
         $(By.xpath(employeeList)).click(); //открыть выпадающий список сотрудников
         $(By.id(employeeName)).selectOption(newEmployee);
+        $("div#formChangeRow div.modal-header").click();
+        $("div#formChangeRow div.form-group.chechboxDivChangePassword > div > div > label").click();
         $(By.id(newPass)).setValue(newPassword);
         $(By.id(newPass2)).setValue(newPassword);
         return page(AccountsReference.class);
