@@ -16,7 +16,7 @@ public class EditUser {
         LogIn logIn = new LogIn();
         logIn.Admin();
         Pages reference = new Pages();
-        reference.References();
+       // reference.References();
         AccountsReference accountsReference = new AccountsReference();
         Sheet accounts;
         FileInputStream fi = new FileInputStream("C:\\Users\\Afashokova\\IdeaProjects\\test1\\data\\login.xls");

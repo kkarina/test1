@@ -25,15 +25,15 @@ public class EditSettlement {
         Settlement = inputFile.getSheet(10);
         int j = Settlement.getRows();
         login.Admin();
-        reference.References();
+        reference.OtherReferences();
         settlementsReference.openSettlementsReference();
-        String settlementName, newMunicipality, newSettlmentName;
+        String settlementName, newMunicipality, newSettlementName;
         for (int i = 1; i < j; i++) {
             settlementName = Settlement.getCell(1, i).getContents();
             settlementsReference.openSettlement(settlementName);
             newMunicipality = Settlement.getCell(2,i).getContents();
-            newSettlmentName = Settlement.getCell(3,i).getContents();
-            settlementsReference.editSettlement(newMunicipality,newSettlmentName);
+            newSettlementName = Settlement.getCell(3,i).getContents();
+            settlementsReference.editSettlement(newMunicipality,newSettlementName);
             reference.SaveObject();
         }
         logout.Signout();

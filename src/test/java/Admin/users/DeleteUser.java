@@ -24,13 +24,12 @@ public class DeleteUser {
         FileInputStream fi = new FileInputStream("C:\\Users\\Afashokova\\IdeaProjects\\test1\\data\\login.xls");
         Workbook inputFile = Workbook.getWorkbook(fi);
         userName = inputFile.getSheet(6);
-        int j = userName.getRows();
 
         logIn.Admin();
-        reference.References();
+     //   reference.References();
         accountsReference.openAccountsReference();
         String login;
-        for (int i = 1; i < j; j++)
+        for (int i = 1; i < userName.getRows(); i++)
         {
             login = userName.getCell(0,i).getContents();
             accountsReference.OpenUser(login);

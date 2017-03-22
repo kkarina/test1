@@ -3,7 +3,7 @@ package Elements;
 /**
  * Created by afashokova on 11.01.2017.
  */
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 

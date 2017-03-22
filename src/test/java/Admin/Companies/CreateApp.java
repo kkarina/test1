@@ -13,7 +13,6 @@ import jxl.Workbook;
 import com.codeborne.selenide.junit.SoftAsserts;
 import static com.codeborne.selenide.Configuration.AssertionMode.SOFT;
 
-
 public class CreateApp {
     private final LogIn login = new LogIn();
     private final LogOut logout = new LogOut();
@@ -25,7 +24,6 @@ public class CreateApp {
 
     @Before
     public void switchToSoftAssertionsMode() {
-
         Configuration.assertionMode = SOFT;
     }
     @Test

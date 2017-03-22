@@ -10,7 +10,7 @@ public class LogOut {
 
     public LogOut Signout() {
 
-        $(By.xpath("/html/body/header/div[3]/div/button")).shouldBe(Condition.visible).click();
+        $("div:nth-child(3) > i").shouldBe(Condition.visible).click();
         $("button.btn-exit").click();
     return page(LogOut.class);
     }

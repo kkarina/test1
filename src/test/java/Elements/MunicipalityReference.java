@@ -12,13 +12,12 @@ import static com.codeborne.selenide.Selenide.*;
 public class MunicipalityReference {
     //открытие справочника муниципальных районов
     public MunicipalityReference openMunicipalityReference() {
-        $("div:nth-child(3) > div.title-reference").click();
-        $("div.block-reference.active > div.listReferences.list-group > a:nth-child(1)").shouldBe(visible).click();
+        $("div.block-slide.expanded > div > div:nth-child(2) > a").click();
+        $("div.block-slide.expanded > div > a:nth-child(1)").shouldBe(visible).click();
         return page(MunicipalityReference.class);
     }
     //Добавление нового района
     public MunicipalityReference CreateMunicipality(String shortName, String fullName) {
-        $("div#custom-toolbar button").click();
         $("input#shortName").setValue(shortName);
         $("input#fullName").setValue(fullName);
         $("div#formChangeRow input.form-control.input-logo.with-set-input").uploadFile(new File("C:\\Users\\Afashokova\\Downloads\\artleo.com-97891.jpg"));

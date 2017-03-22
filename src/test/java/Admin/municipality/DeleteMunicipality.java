@@ -19,15 +19,15 @@ public class DeleteMunicipality {
         Workbook inputFile = Workbook.getWorkbook(fi);
         municipalities = inputFile.getSheet(14);
         logIn.Admin();
-        Pages referencies = new Pages();
-        referencies.References();
+        Pages references = new Pages();
+        references.OtherReferences();
         MunicipalityReference Municipalities = new MunicipalityReference();
         Municipalities.openMunicipalityReference();
         String shortName;
         for (int i=1; i<municipalities.getRows(); i++){
             shortName = municipalities.getCell(0,i).getContents();
             Municipalities.openMunicipality(shortName);
-            referencies.DeleteObject();
+            references.DeleteObject();
         }
         LogOut logOut = new LogOut();
         logOut.Signout();

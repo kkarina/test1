@@ -25,7 +25,7 @@ public class DeleteAppEmployee {
         AppEmployeeForDelete = inputFile.getSheet(7);
         int j = AppEmployeeForDelete.getRows();
         login.Admin();
-        reference.References();
+     //   reference.References();
         employeeReference.employeeReference();
         employeeReference.AppEmployeeReference();
         String employee;

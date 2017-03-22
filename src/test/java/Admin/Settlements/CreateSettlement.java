@@ -11,8 +11,10 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.SoftAsserts;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.AssertionMode.SOFT;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.*;
 import java.io.FileInputStream;
@@ -42,15 +44,16 @@ public class CreateSettlement {
         Settlement = inputFile.getSheet(8);
         int j = Settlement.getRows();
         login.Admin();
-        reference.References();
+        reference.OtherReferences();
         settlementsReference.openSettlementsReference();
         String settlementName, municipality;
         for (int i = 1; i < j; i++) {
+            reference.AddButton();
             settlementName = Settlement.getCell(1, i).getContents();
             municipality = Settlement.getCell(0,i).getContents();
             settlementsReference.newSettlement(municipality, settlementName);
             reference.SaveObject();
-            $("div:nth-child(2) > div.col-table.col-md-9").shouldHave(text(settlementName));
+            $$("td.col-md-8").findBy(text(settlementName)).shouldBe(visible);
         }
         logout.Signout();
 

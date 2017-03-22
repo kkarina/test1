@@ -14,14 +14,13 @@ public class SettlementsReference {
 
     //Открытие справочника "Поселения"
     public SettlementsReference openSettlementsReference() {
-        $(By.xpath("//div[2]/div/div/div[3]/div[1]")).click();
-        $(By.xpath("//div[3]/div[2]/a[2]")).click();
+        $("div.block-slide.expanded > div > div:nth-child(2) > a").click();
+        $("div.block-slide.expanded > div > a:nth-child(2)").click();
         return page(SettlementsReference.class);
     }
 
     //Создание нового поселения
     public SettlementsReference newSettlement(String municipality, String settlement) {
-        $(".add-value-btn").click();
         $("div#formChangeRow span.filter-option.pull-left").click();
         $(By.linkText(municipality)).click();
         sleep(500);

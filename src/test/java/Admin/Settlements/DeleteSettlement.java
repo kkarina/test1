@@ -26,7 +26,7 @@ public class DeleteSettlement {
         Settlement = inputFile.getSheet(9);
         int j = Settlement.getRows();
         login.Admin();
-        reference.References();
+        reference.OtherReferences();
         settlementsReference.openSettlementsReference();
         String settlementName;
         for (int i = 1; i < j; i++) {

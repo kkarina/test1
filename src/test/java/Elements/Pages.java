@@ -11,21 +11,22 @@ import static com.codeborne.selenide.Selenide.*;
  */
 @SuppressWarnings("UnusedReturnValue")
 public class Pages {
-    //Справочники
-    public Pages References() {
-        $(By.xpath("/html/body/header/div[2]/div[2]/a[3]/span[2]")).shouldBe(visible).click();
+
+    //Прочие справочники
+    public Pages OtherReferences() {
+        $("div:nth-child(7) > a > span.text").shouldBe(visible).click();
         return page(Pages.class);
     }
 
-    //Реестр предприятий
+      //Реестр предприятий
     public Pages Companies() {
-        $("div:nth-child(1) > a > span.text").shouldBe(visible).click();
+        $("menu > a:nth-child(1) > span.text").shouldBe(visible).click();
         return page(Pages.class);
     }
 
     //Удаление объекта
     public Pages DeleteObject() {
-        $(".delete-btn.pull-left").click();
+        $(".delete-btn.pull-left").shouldBe(visible).click();
         $(".buttonOk").click();
         return page(Pages.class);
     }
@@ -42,6 +43,12 @@ public class Pages {
             $(withText("Об ошибке")).click();
             System.out.println($("div > div.bodyWindow").getText());
         }
+        return page(Pages.class);
+    }
+
+    //Добавление объекта
+    public Pages AddButton() {
+        $(withText("Добавить")).click();
         return page(Pages.class);
     }
 }

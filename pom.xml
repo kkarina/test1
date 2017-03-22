@@ -8,7 +8,6 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <path.chrome>C:\Users\Afashokova\IdeaProjects\test1\data\chromedriver.exe</path.chrome>
-        <path.ie>C:\Users\Afashokova\IdeaProjects\test1\data\IEDriverServer.exe</path.ie>
         <runner.browser>chrome</runner.browser>
     </properties>
     <build>
@@ -20,7 +19,6 @@
                 <configuration>
                     <systemPropertyVariables>
                         <webdriver.chrome.driver>${path.chrome}</webdriver.chrome.driver>
-                        <webdriver.ie.driver>${path.ie}</webdriver.ie.driver>
                         <browser>${runner.browser}</browser>
                     </systemPropertyVariables>
                 </configuration>
@@ -54,5 +52,10 @@
             <artifactId>jxl</artifactId>
             <version>2.6.12</version>
         </dependency>
+          <dependency>
+              <groupId>org.seleniumhq.selenium</groupId>
+              <artifactId>selenium-safari-driver</artifactId>
+              <version>3.2.0</version>
+          </dependency>
     </dependencies>
 </project>

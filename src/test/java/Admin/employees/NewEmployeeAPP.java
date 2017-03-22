@@ -29,7 +29,7 @@ public class NewEmployeeAPP {
         s = inputFile.getSheet(4);// данные для заполнения формы создания сотрудника АПП
         int j = s.getRows();
         login.Admin();
-        reference.References();
+     //   reference.References();
         employeeReference.employeeReference();
         employeeReference.AppEmployeeReference();
 

@@ -12,7 +12,9 @@ import java.io.FileInputStream;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class CreateMunicipality {
 
@@ -26,15 +28,17 @@ public class CreateMunicipality {
         Workbook inputFile = Workbook.getWorkbook(fi);
         municipalities = inputFile.getSheet(13);
         logIn.Admin();
-        reference.References();
         MunicipalityReference municipalityReference = new MunicipalityReference();
+        reference.OtherReferences();
         municipalityReference.openMunicipalityReference();
         String shortName, fullName;
         for (int i =1; i< municipalities.getRows();i++){
+            reference.AddButton();
             shortName = municipalities.getCell(0,i).getContents();
             fullName = municipalities.getCell(1,i).getContents();
             municipalityReference.CreateMunicipality(shortName,fullName);
             reference.SaveObject();
+            sleep(800);
             $$("td.col-md-3").findBy(text(shortName)).shouldBe(visible);
 
         }
