@@ -10,9 +10,9 @@ import jxl.Workbook;
 
 
 public class    LogIn {
-    private Sheet s;
+    private static Sheet s;
 
-    public LogIn SignIn(int str, int sheet) throws Exception {
+    public static LogIn SignIn(int str, int sheet) throws Exception {
 
 
         FileInputStream fi = new FileInputStream("C:\\Users\\Afashokova\\IdeaProjects\\test1\\data\\login.xls");
@@ -27,7 +27,7 @@ public class    LogIn {
         return page(LogIn.class);
     }
 
-    public LogIn Admin () throws Exception{
+    public static LogIn Admin () throws Exception{
         open("https://agroview-test.lenoblgis.ru");
         $(By.id("loginName")).shouldBe(visible).setValue("admin");
         $(By.id("password")).setValue("123");

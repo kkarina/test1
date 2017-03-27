@@ -1,25 +1,18 @@
 package Admin.employees;
 
-import Elements.EmployeeReference;
-import Elements.LogOut;
-import Elements.Pages;
-import Elements.LogIn;
 import org.junit.Test;
 import java.io.FileInputStream;
 import jxl.Sheet;
 import jxl.Workbook;
-
+import static Elements.LogIn.*;
+import static Elements.Buttons.*;
+import static Elements.EmployeeReference.*;
+import static Elements.Pages.usersReference;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class NewEmployeeAPP {
-    private final LogIn login = new LogIn();
-    private final LogOut logout = new LogOut();
-    private final Pages reference = new Pages();
-    private final EmployeeReference employeeReference = new EmployeeReference();
     private Sheet s;
-
-
-
 
     @Test
     public void TestNewEmployeeAPP() throws Exception
@@ -28,10 +21,9 @@ public class NewEmployeeAPP {
         Workbook inputFile = Workbook.getWorkbook(fi);
         s = inputFile.getSheet(4);// данные для заполнения формы создания сотрудника АПП
         int j = s.getRows();
-        login.Admin();
-     //   reference.References();
-        employeeReference.employeeReference();
-        employeeReference.AppEmployeeReference();
+        Admin();
+        usersReference();
+        AppEmployeeReference();
 
         String secondName, firstName, middleName, FIO, company, phoneNumber, Role, Statement, state;
 
@@ -45,10 +37,13 @@ public class NewEmployeeAPP {
             Role = s.getCell(6, i).getContents();
             Statement= s.getCell(7,i).getContents();
             state =  s.getCell(8,i).getContents();
-            employeeReference.CreateAppEmployee(secondName, firstName, middleName, FIO, company, phoneNumber, Role, Statement, state);
+            AddButton();
+            CreateAppEmployee(secondName, firstName, middleName, FIO, company, phoneNumber, Role, Statement, state);
+            SaveObject();
+            $(".table-hover tbody").shouldHave(text(secondName));
         }
 
-        logout.Signout();
+        Signout();
      }
 
 

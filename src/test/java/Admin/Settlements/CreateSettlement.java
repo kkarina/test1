@@ -3,17 +3,17 @@ package Admin.Settlements;
 /**
  * Created by afashokova on 30.01.2017.
  */
-import Elements.SettlementsReference;
-import Elements.LogOut;
-import Elements.Pages;
-import Elements.LogIn;
+import Elements.*;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.SoftAsserts;
 
+import static Elements.LogIn.*;
+import static Elements.Buttons.*;
+import static Elements.Pages.*;
+import static Elements.SettlementsReference.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.AssertionMode.SOFT;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.*;
@@ -23,12 +23,10 @@ import jxl.Workbook;
 
 
 
+
+
 public class CreateSettlement {
-    private final LogIn login = new LogIn();
-    private final LogOut logout = new LogOut();
-    private final Pages reference = new Pages();
-    private final SettlementsReference settlementsReference = new SettlementsReference();
-    private Sheet Settlement;
+     private Sheet Settlement;
 
     @Rule
     public SoftAsserts softAsserts = new SoftAsserts();
@@ -43,19 +41,19 @@ public class CreateSettlement {
         Workbook inputFile = Workbook.getWorkbook(fi);
         Settlement = inputFile.getSheet(8);
         int j = Settlement.getRows();
-        login.Admin();
-        reference.OtherReferences();
-        settlementsReference.openSettlementsReference();
+        Admin();
+        OtherReferences();
+        openSettlementsReference();
         String settlementName, municipality;
         for (int i = 1; i < j; i++) {
-            reference.AddButton();
+            AddButton();
             settlementName = Settlement.getCell(1, i).getContents();
             municipality = Settlement.getCell(0,i).getContents();
-            settlementsReference.newSettlement(municipality, settlementName);
-            reference.SaveObject();
+            newSettlement(municipality, settlementName);
+            SaveObject();
             $$("td.col-md-8").findBy(text(settlementName)).shouldBe(visible);
         }
-        logout.Signout();
+        Signout();
 
     }
 }

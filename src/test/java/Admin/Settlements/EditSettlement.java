@@ -1,21 +1,18 @@
 package Admin.Settlements;
-import Elements.SettlementsReference;
-import Elements.LogOut;
-import Elements.Pages;
-import Elements.LogIn;
 import org.junit.*;
 import java.io.FileInputStream;
 import jxl.Sheet;
 import jxl.Workbook;
 
+import static Elements.Buttons.*;
+import static Elements.SettlementsReference.*;
+import static Elements.Pages.*;
+import static Elements.LogIn.*;
+
 /**
  * Created by afashokova on 01.02.2017.
  */
 public class EditSettlement {
-    private final LogIn login = new LogIn();
-    private final LogOut logout = new LogOut();
-    private final Pages reference = new Pages();
-    private final SettlementsReference settlementsReference = new SettlementsReference();
     private Sheet Settlement;
 
     @Test
@@ -24,18 +21,18 @@ public class EditSettlement {
         Workbook inputFile = Workbook.getWorkbook(fi);
         Settlement = inputFile.getSheet(10);
         int j = Settlement.getRows();
-        login.Admin();
-        reference.OtherReferences();
-        settlementsReference.openSettlementsReference();
+        Admin();
+        OtherReferences();
+        openSettlementsReference();
         String settlementName, newMunicipality, newSettlementName;
         for (int i = 1; i < j; i++) {
             settlementName = Settlement.getCell(1, i).getContents();
-            settlementsReference.openSettlement(settlementName);
+            openSettlement(settlementName);
             newMunicipality = Settlement.getCell(2,i).getContents();
             newSettlementName = Settlement.getCell(3,i).getContents();
-            settlementsReference.editSettlement(newMunicipality,newSettlementName);
-            reference.SaveObject();
+            editSettlement(newMunicipality,newSettlementName);
+            SaveObject();
         }
-        logout.Signout();
+        Signout();
     }
 }

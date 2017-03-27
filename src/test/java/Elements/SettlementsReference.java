@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class SettlementsReference {
 
     //Открытие справочника "Поселения"
-    public SettlementsReference openSettlementsReference() {
+    public static SettlementsReference openSettlementsReference() {
         $("div.block-slide.expanded > div > div:nth-child(2) > a").click();
         $("div.block-slide.expanded > div > a:nth-child(2)").click();
         return page(SettlementsReference.class);
     }
 
     //Создание нового поселения
-    public SettlementsReference newSettlement(String municipality, String settlement) {
+    public static SettlementsReference newSettlement(String municipality, String settlement) {
         $("div#formChangeRow span.filter-option.pull-left").click();
         $(By.linkText(municipality)).click();
         sleep(500);
@@ -29,7 +29,7 @@ public class SettlementsReference {
     }
 
     //Просмотр поселения
-    public SettlementsReference openSettlement (String settlement){
+    public static SettlementsReference openSettlement (String settlement){
         if ($("div#reference span > button").is(visible) ==true) {
             $("div#reference span > button").click();
             $("div#reference span > ul > li:nth-child(2) > a").click();
@@ -42,7 +42,7 @@ public class SettlementsReference {
 
 
     //Редактирование поселения
-    public SettlementsReference editSettlement (String newMunicipality, String newSettlement){
+    public static SettlementsReference editSettlement (String newMunicipality, String newSettlement){
         $("div#formChangeRow span.filter-option.pull-left").click();
         $(By.linkText(newMunicipality)).click();
         $("div:nth-child(4) > div > input:nth-child(1)").setValue(newSettlement);

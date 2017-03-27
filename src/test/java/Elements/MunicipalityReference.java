@@ -11,20 +11,20 @@ import static com.codeborne.selenide.Selenide.*;
  */
 public class MunicipalityReference {
     //открытие справочника муниципальных районов
-    public MunicipalityReference openMunicipalityReference() {
+    public static MunicipalityReference openMunicipalityReference() {
         $("div.block-slide.expanded > div > div:nth-child(2) > a").click();
         $("div.block-slide.expanded > div > a:nth-child(1)").shouldBe(visible).click();
         return page(MunicipalityReference.class);
     }
     //Добавление нового района
-    public MunicipalityReference CreateMunicipality(String shortName, String fullName) {
+    public static MunicipalityReference CreateMunicipality(String shortName, String fullName) {
         $("input#shortName").setValue(shortName);
         $("input#fullName").setValue(fullName);
         $("div#formChangeRow input.form-control.input-logo.with-set-input").uploadFile(new File("C:\\Users\\Afashokova\\Downloads\\artleo.com-97891.jpg"));
         return page(MunicipalityReference.class);
     }
     //просмотр района
-    public MunicipalityReference openMunicipality(String shortName){
+    public static MunicipalityReference openMunicipality(String shortName){
         $$("td.col-md-3").findBy(text(shortName)).click();
         return page(MunicipalityReference.class);
     }

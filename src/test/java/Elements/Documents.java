@@ -11,14 +11,9 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 public class Documents {
-    //отркыть документы по субсидированию
-    public Documents openDocuments() {
-        $("a.clear-filter > span.text").click();
-        return page(Documents.class);
-    }
 
     //подать документы на заключение соглашения
-    public Documents agreement()  throws Exception {
+    public static Documents agreement()  throws Exception {
         $("div#custom-toolbar div.btn-group.btn-group-sm.btn-group-links-create > button").click();
         $("div#custom-toolbar li.link-create-agreement > a").click();
         $("form#form-create-agreement div:nth-child(2) > div > button").click();

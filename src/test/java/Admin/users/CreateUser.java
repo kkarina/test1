@@ -1,21 +1,16 @@
 package Admin.users;
 
-import Elements.AccountsReference;
-import Elements.Pages;
-import Elements.LogIn;
-import Elements.LogOut;
 import jxl.Sheet;
 import jxl.Workbook;
 import org.junit.Test;
 import java.io.FileInputStream;
 
-
+import static Elements.AccountsReference.*;
+import static Elements.Buttons.*;
+import static Elements.Pages.*;
+import static Elements.LogIn.*;
 
 public class CreateUser {
-    private final LogIn login = new LogIn();
-    private final LogOut logout = new LogOut();
-    private final AccountsReference accountsReference = new AccountsReference();
-    private final Pages reference = new Pages();
     private Sheet newLogin;
     private Sheet newEmployee;
 
@@ -27,10 +22,10 @@ public class CreateUser {
         Workbook inputFile = Workbook.getWorkbook(fi);
         newLogin = inputFile.getSheet(5);
         int j = newLogin.getRows();
-        login.Admin();
+        Admin();
         newEmployee = inputFile.getSheet(4);
-     //   reference.References();
-        accountsReference.openAccountsReference();
+        usersReference();
+        openAccountsReference();
 
         String logon, email, employee, newPassword;
         for (int i = 1; i <= (j - 1); i++) {
@@ -40,10 +35,11 @@ public class CreateUser {
                     + newEmployee.getCell(1, i).getContents().replace(" ", "")
                     + " " + newEmployee.getCell(2, i).getContents().replace(" ", "");
             newPassword = newLogin.getCell(2, i).getContents();
-            accountsReference.UserCreation(logon, email, employee, newPassword);
-            reference.SaveObject();
+            AddButton();
+            UserCreation(logon, email, employee, newPassword);
+            SaveObject();
         }
-        logout.Signout();
+        Signout();
     }
 
 }

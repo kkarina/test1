@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 @SuppressWarnings("UnusedReturnValue")
 public class AccountsReference {
-    String logon = "logonName",
+    static String logon = "logonName",
             Email = "email",
             employeeList = "(//button[@type='button'])[6]",
             employeeName = "employee.id",
@@ -17,15 +17,13 @@ public class AccountsReference {
             newPass2 = "newPassword2";
 
     //Открытие справочника учетных записей
-    public AccountsReference openAccountsReference() {
-        $(By.xpath("//div[2]/div/div/div[2]/div")).click(); // открыть "Справочники профилей"
-        $(By.linkText("Учётные записи")).click();
+    public static AccountsReference openAccountsReference() {
+        $(By.linkText("Учетные записи")).click();
         return page(AccountsReference.class);
     }
 
     //Создание новой учетной записи
-    public AccountsReference UserCreation(String login, String email, String employee, String Password) {
-        $(By.xpath("(//button[@type='button'])[2]")).click();// "добавить"
+    public static AccountsReference UserCreation(String login, String email, String employee, String Password) {
         $(By.id(logon)).setValue(login);
         $(By.id(Email)).setValue(email);
         $(By.xpath(employeeList)).click(); //открыть выпадающий список сотрудников
@@ -36,13 +34,13 @@ public class AccountsReference {
     }
 
     //Открыть запись справочника
-    public AccountsReference OpenUser(String username) {
+    public static AccountsReference OpenUser(String username) {
         $(withText(username)).click();
         return page(AccountsReference.class);
     }
 
     //Редактирование учетной записи
-    public AccountsReference EditUser(String newLogin, String newEmail, String newEmployee, String newPassword) {
+    public static AccountsReference EditUser(String newLogin, String newEmail, String newEmployee, String newPassword) {
 
         $(By.id(logon)).setValue(newLogin);
         $(By.id(Email)).setValue(newEmail);

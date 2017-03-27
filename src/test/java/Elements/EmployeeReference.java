@@ -12,23 +12,18 @@ import Elements.*;
 @SuppressWarnings("UnusedReturnValue")
 public class EmployeeReference {
 
-    ///Открыть справочники сотрудников
-    public EmployeeReference employeeReference() {
-        $(By.xpath("//div[2]/div/div/div[4]/div")).click();
-        return  page(EmployeeReference.class);
-    }
+
 
 
     //Открыть справочник сотрудников АПП
-    public EmployeeReference AppEmployeeReference() {
+    public static EmployeeReference AppEmployeeReference() {
         $(By.linkText("Сотрудники АПП")).click();
         return page(EmployeeReference.class);
     }
 
     //Создание нового сотрудника АПП
-    public EmployeeReference CreateAppEmployee(String secondName, String firstName, String middleName, String FIO, String company,
+    public static EmployeeReference CreateAppEmployee(String secondName, String firstName, String middleName, String FIO, String company,
                                                String phoneNumber, String Role, String Statement, String state) {
-        $(By.xpath("(//button[@type='button'])[2]")).click();
         $(By.id("personName.lastName")).setValue(secondName);
         $(By.id("personName.firstName")).setValue(firstName);
         $(By.id("personName.middleName")).setValue(middleName);
@@ -42,13 +37,11 @@ public class EmployeeReference {
         $(By.id("position")).setValue(Statement);
         $(By.id("positionGenitive")).setValue(state);
         Pages mistake = new Pages();
-        mistake.SaveObject();
         mistake.Mistake();
-        $(".table-hover tbody").shouldHave(text(secondName));
         return page (EmployeeReference.class);
     }
     //Открыть запись справочника Сотрудники АПП
-    public EmployeeReference OpenEmployeeApp(String employeeName) {
+    public static EmployeeReference OpenEmployeeApp(String employeeName) {
         $(withText(employeeName)).click();
         return page(EmployeeReference.class);
     }

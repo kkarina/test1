@@ -13,32 +13,19 @@ import static com.codeborne.selenide.Selenide.*;
 public class Pages {
 
     //Прочие справочники
-    public Pages OtherReferences() {
+    public static Pages OtherReferences() {
         $("div:nth-child(7) > a > span.text").shouldBe(visible).click();
         return page(Pages.class);
     }
 
       //Реестр предприятий
-    public Pages Companies() {
+    public static Pages Companies() {
         $("menu > a:nth-child(1) > span.text").shouldBe(visible).click();
         return page(Pages.class);
     }
 
-    //Удаление объекта
-    public Pages DeleteObject() {
-        $(".delete-btn.pull-left").shouldBe(visible).click();
-        $(".buttonOk").click();
-        return page(Pages.class);
-    }
-
-    //Сохранение объекта
-    public Pages SaveObject() {
-        $(".save-form-btn").shouldBe(visible).click();
-        return page(Pages.class);
-    }
-
     //Проверка сообщения об ошибке
-    public Pages Mistake() {
+    public static Pages Mistake() {
         if ($("ul#noty_topRight_layout_container").has(text("Ошибка выполнения")) == true) {
             $(withText("Об ошибке")).click();
             System.out.println($("div > div.bodyWindow").getText());
@@ -46,9 +33,21 @@ public class Pages {
         return page(Pages.class);
     }
 
-    //Добавление объекта
-    public Pages AddButton() {
-        $(withText("Добавить")).click();
+    //Открыть справочники пользователей
+    public static Pages usersReference() {
+        $("div:nth-child(3) > a > span.text").click();
+        return  page(Pages.class);
+    }
+
+    //Открыть "Документы по субсидированию"
+    public static Pages openSubsidyDocuments() {
+        $("a.clear-filter > span.text").click();
+        return page(Pages.class);
+    }
+
+    //Открыть справочник "Субсидии"
+    public static Pages openSubsidies() {
+        $("div:nth-child(5) > a > span.text").click();
         return page(Pages.class);
     }
 }

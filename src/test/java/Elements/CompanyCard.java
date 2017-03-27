@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 
 public class CompanyCard {
-    String  fullName = "textarea#fullName",
+   public static String  fullName = "textarea#fullName",
             shortName = "input#shortName",
             Kind = "//div[3]/div/div/button",
             companyClass = "form#formCompany div:nth-child(6) > div > div > button > span.bs-caret > span",
@@ -33,7 +33,7 @@ public class CompanyCard {
             Authority = "input#pursuantAuthority";
 
     //Добавление паспорта предприятия
-    public CompanyCard AddCompany(String AppType, String companyFullName, String companyShortName, String AppKind, String AppClass,
+    public static CompanyCard AddCompany(String AppType, String companyFullName, String companyShortName, String AppKind, String AppClass,
                                   String settlement, String phoneNumber, String faxNumber, String INN, String surname, String firstName, String middleName,
                                   String bank, String BankDetails, String status, String legalAddress, String actualAddress, String ogrnip, String okvad,
                                   String pfrNumber, String fssNumber, String oktmo, String pursuantAuthority, String snils, String kpp, String employeePosition,
@@ -90,8 +90,15 @@ public class CompanyCard {
 
         $(withText("Сохранить")).click();
         $("div:nth-child(8) > div > p").shouldHave(text(INN));
-        screenshot("C:\\Users\\Afashokova\\IdeaProjects\\test1\\build\\reports\\tests\\1.png");
+        screenshot(companyShortName);
 
         return page(CompanyCard.class);
     }
-   }
+    //Просмотр паспорта предприятия
+    public static CompanyCard OpenCompanyCard (String INN) {
+        $$("td.col-md-2").findBy(text(INN)).click();
+        return page(CompanyCard.class);
+    }
+}
+
+

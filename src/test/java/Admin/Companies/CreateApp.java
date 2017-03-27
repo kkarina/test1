@@ -4,20 +4,20 @@ package Admin.Companies;
  * Created by afashokova on 03.02.2017.
  */
 
-import Elements.*;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.*;
 import java.io.FileInputStream;
 import jxl.Sheet;
 import jxl.Workbook;
 import com.codeborne.selenide.junit.SoftAsserts;
+import static Elements.Buttons.*;
+import static Elements.LogIn.*;
+import static Elements.CompanyCard.*;
+import static Elements.Pages.*;
 import static com.codeborne.selenide.Configuration.AssertionMode.SOFT;
 
 public class CreateApp {
-    private final LogIn login = new LogIn();
-    private final LogOut logout = new LogOut();
-    private final Pages companies = new Pages();
-    private final CompanyCard companyCard = new CompanyCard();
     private Sheet Companies;
     @Rule
     public SoftAsserts softAsserts = new SoftAsserts();
@@ -31,8 +31,8 @@ public class CreateApp {
         FileInputStream fi = new FileInputStream("C:\\Users\\Afashokova\\IdeaProjects\\test1\\data\\login.xls");
         Workbook inputFile = Workbook.getWorkbook(fi);
         Companies = inputFile.getSheet(11);
-        login.Admin();
-        companies.Companies();
+        Admin();
+        Companies();
         String AppType, companyFullName,  companyShortName,  AppKind,  AppClass,
                settlement, phoneNumber, faxNumber, INN, surname, firstName, middleName,
                bank, BankDetails, status, legalAddress,  actualAddress, ogrnip, okvad,
@@ -68,14 +68,14 @@ public class CreateApp {
             documentNumber = Companies.getCell(26, i).getContents();
             documentDate = Companies.getCell(27, i).getContents();
             ogrn = Companies.getCell(28,i).getContents();
-            companyCard.AddCompany(AppType, companyFullName,  companyShortName,  AppKind,  AppClass,
+            AddCompany(AppType, companyFullName,  companyShortName,  AppKind,  AppClass,
                     settlement, phoneNumber, faxNumber, INN, surname, firstName, middleName,
                     bank, BankDetails, status, legalAddress,  actualAddress, ogrnip, okvad,
                     pfrNumber, fssNumber, oktmo, pursuantAuthority,snils,kpp,employeePosition,
                     documentNumber, documentDate, ogrn);
-            companies.Companies();
+            Companies();
         }
-        logout.Signout();
+        Signout();
 
     }
 
